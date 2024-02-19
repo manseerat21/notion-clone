@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronLeft, MenuIcon, PlusCircle, Search, Settings, Sidebar } from "lucide-react";
+import { ChevronLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Sidebar } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -122,6 +122,7 @@ export const Navigation = () => {
                 </div>
                 <div className="mt-4">
                     <DocumentList />
+                    <Item onClick={handleCreate} icon={Plus} label="Add a page" />
                 </div>
                 <div onMouseDown={handleMouseDown} onClick={resetWidth} className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" />
             </aside>
