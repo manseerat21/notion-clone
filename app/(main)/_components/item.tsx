@@ -8,6 +8,7 @@ import { useMutation } from "convex/react";
 import { ChevronDown, ChevronRight, LucideIcon, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 
 interface ItemProps {
     id?: Id<"documents">;
@@ -54,8 +55,14 @@ export const Item = ({
                     onExpand?.();
                 }
                 Router.push(`/home/${documentId}`);
-            })
-    }
+            });
+
+        toast.promise(promise, {
+            loading: "Creating a new note...",
+            success: "New note created!",
+            error: "Failed to create a new note."
+        });
+    };
 
     const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
